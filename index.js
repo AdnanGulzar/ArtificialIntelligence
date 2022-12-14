@@ -6,7 +6,7 @@ const path=require("path")
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
@@ -28,7 +28,7 @@ app.get("/image/:url", async(req,res)=>{
       let iUrl = await getImage(url);
       res.json(iUrl);
     } catch (e) {
-      console.log(e);
+      console.log(e.message);
       res.status(500).json("Internal Server Error");
     } 
    
@@ -42,7 +42,7 @@ app.get("/text/:text", async(req,res)=>{
     res.json(iUrl)  
    }
    catch(e){
-    console.log(e);
+    console.log(e.message);
       res.status(500).json("Internal Server Error");
    } 
       
@@ -73,8 +73,6 @@ const response = await openai.createCompletion({
   stop: ["You:"],
 });
  let data=response.data.choices[0].text
-
-
 return data
 }
 
