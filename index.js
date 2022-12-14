@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 
-app.get("*",(req,res)=>{
+app.get("/",(req,res)=>{
  res.send("server working....")
     // res.sendFile( path.resolve(__dirname,"./Aiwebsite/dist/index.html") )
 })
