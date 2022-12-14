@@ -2,11 +2,12 @@ const express=require("express")
 const app=express()
 const cors=require("cors")
 const path=require("path")
+require("dotenv").config();
 
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: process.env.KEY,
 });
 const openai = new OpenAIApi(configuration);
 

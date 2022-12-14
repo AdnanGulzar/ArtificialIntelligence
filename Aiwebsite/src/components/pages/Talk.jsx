@@ -27,6 +27,7 @@ const  Talk = () => {
       direction: "outgoing",
     },
   ]);
+   const [opend, setOpend] = React.useState(false);
   
   const handleClose1 = (event, reason) => {
     if (reason === "clickaway") {
@@ -39,7 +40,9 @@ const  Talk = () => {
     try{
     const responce = await fetch(`http://localhost:3000/text/${val}`);
     const data = await responce.json();
+    
     return data;}
+  
     catch(err){
       setOpen1(true)
       return "//end//"
@@ -97,7 +100,12 @@ const  Talk = () => {
               setIsChat(true);
               setMval("");
               let rmessage = await fetchdata(mval);
-              setIsChat(false);
+              if (rmessage === "Internal Server Error")
+              {
+                setOpen1(true)
+              rmessage="i am not available to talk "
+              }
+               setIsChat(false);
 
               await setMessageList([
                 ...messageList,
@@ -133,6 +141,8 @@ const  Talk = () => {
         open={open1}
         autoHideDuration={6000}
         onClose={handleClose1}
+        position="center"
+        anchorOrigin={{vertical:"top",horizontal:"center"}}
       >
         <Alert
           onClose={handleClose1}

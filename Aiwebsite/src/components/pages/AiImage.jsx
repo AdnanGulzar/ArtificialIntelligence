@@ -39,9 +39,11 @@ async function fetchdata(val) {
   try{
   const responce = await fetch(`http://localhost:3000/image/${val}`);
   const data = await responce.json();
+  console.log(data)
   return data;}
   catch(err){
     setOpen1(true);
+    setOpen(false)
   }
 }
 
@@ -59,6 +61,7 @@ async function fetchdata(val) {
         open={open1}
         autoHideDuration={6000}
         onClose={handleClose1}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
       >
         <Alert
           onClose={handleClose1}
@@ -84,7 +87,10 @@ async function fetchdata(val) {
       >
         <DialogContent>
           <Container maxWidth="sm">
-            <img src={isrc} className="img" />
+            <img
+              src={isrc}
+              className="img"
+            />
           </Container>
         </DialogContent>
         <DialogActions>
@@ -132,13 +138,17 @@ async function fetchdata(val) {
                 alert("Please write at least 5 characters");
                 setOpen(false);
               } else {
-                
                 let rmessage = await fetchdata(text);
-                console.log(rmessage);
-                setOpen(false);
-                setIcrc(rmessage);
-                setOpend(true);
-               
+                if (rmessage === "Internal Server Error") {
+                  setOpen1(true);
+                  setOpen(false);
+                } else {
+                  setOpend(true);
+                  setOpen(false);
+                  setIcrc(rmessage);
+                }
+
+                // setOpen(true);
               }
             }}
           >

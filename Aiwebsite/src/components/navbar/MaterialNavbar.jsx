@@ -47,7 +47,7 @@ function MaterialNavbar() {
           />
           <Link
             to="/"
-            style={{ textDecoration: "none" }}
+            style={{ textDecoration: "none", color: "inherit" }}
           >
             <Typography
               variant="h4"
@@ -100,6 +100,7 @@ function MaterialNavbar() {
                 <Link
                   key={page.page}
                   to={page.route}
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page.page}</Typography>
@@ -111,22 +112,27 @@ function MaterialNavbar() {
           <AppRegistrationIcon
             sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
           />
-          <Typography
-            variant="h4"
-            noWrap
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 800,
-              letterSpacing: ".3rem",
-              color: "secondary.main",
-              textDecoration: "none",
-            }}
+          <Link
+            to="/"
+            style={{ textDecoration: "none", color: "inherit" }}
           >
-            AIWI
-          </Typography>
+            <Typography
+              variant="h4"
+              noWrap
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontFamily: "monospace",
+                fontWeight: 800,
+                letterSpacing: ".3rem",
+                color: "secondary.main",
+                textDecoration: "none",
+              }}
+            >
+              AIWI
+            </Typography>
+          </Link>
           <Box
             sx={{
               flexGrow: 1,
@@ -138,6 +144,7 @@ function MaterialNavbar() {
               <Link
                 key={page.page}
                 to={page.route}
+                style={{ textDecoration: "none", color: "inherit" }}
               >
                 <Button
                   key={page}
