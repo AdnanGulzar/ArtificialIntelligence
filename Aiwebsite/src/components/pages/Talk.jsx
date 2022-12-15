@@ -38,7 +38,9 @@ const  Talk = () => {
   };
   async function fetchdata(val) {
     try{
-    const responce = await fetch(`http://35.78.117.254/text/${val}`);
+    const responce = await fetch(
+      `https://vem77hljnc.execute-api.us-east-2.amazonaws.com/text/${val}`
+    );
     const data = await responce.json();
     
     return data;}

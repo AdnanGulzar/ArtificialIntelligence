@@ -37,7 +37,9 @@ const handleChange = (event) => {
 };
 async function fetchdata(val) {
   try{
-  const responce = await fetch(`http://35.78.117.254/image/${val}`);
+  const responce = await fetch(
+    `https://vem77hljnc.execute-api.us-east-2.amazonaws.com/image/${val}`
+  );
   const data = await responce.json();
   console.log(data)
   return data;}
