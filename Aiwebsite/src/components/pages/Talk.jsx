@@ -38,7 +38,7 @@ const  Talk = () => {
   };
   async function fetchdata(val) {
     try{
-    const responce = await fetch(`http://localhost:3000/text/${val}`);
+    const responce = await fetch(`http://35.78.117.254/text/${val}`);
     const data = await responce.json();
     
     return data;}
