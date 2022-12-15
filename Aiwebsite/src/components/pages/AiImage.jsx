@@ -7,8 +7,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const handleChange = (event) => {
     setName(event.target.value);
   };
@@ -88,10 +88,15 @@ async function fetchdata(val) {
         aria-describedby="alert-dialog-description"
       >
         <DialogContent>
-          <Container maxWidth="sm">
-            <img
+          <Container maxWidth="sm"  >
+            {/* <img
               src={isrc}
               className="img"
+            /> */}
+            <LazyLoadImage
+              alt={isrc}
+              effect="blur"
+              src={isrc}  
             />
           </Container>
         </DialogContent>
